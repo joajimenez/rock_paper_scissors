@@ -2,10 +2,10 @@ let playerPoints = 0;
 let robotPoints = 0;
 let draw = 0;
 
-//Human's selection
+//Player selection
 let playerSelection = prompt('Choose wisely: Rock, Paper or Scissors?');
 
-//Computer's Selection
+//Computer Selection
 
 function computerSelection() {
   const cp = Math.random();
