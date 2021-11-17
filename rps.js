@@ -1,64 +1,106 @@
-let playerPoints = 0;
-let robotPoints = 0;
-let draw = 0;
+// Variables
+
+let playerPoints = parseInt(0);
+let computerPoints = parseInt(0);
+let draw = parseInt(0);
 let roundWinner = '';
 
-//Player selection
-let playerSelection = prompt('Choose wisely: Rock, Paper or Scissors?');
+// Player selection
+//const prompt = require('prompt-sync')();
+let playerSelection = prompt(
+  ' Write your selection: Rock, Paper or Scissors? '
+);
 
-//Computer Selection
-
+// Computer Selection
 function computerSelection() {
   const cp = Math.random();
-  if (cp < 0.34) {
-    return 'Rock';
-  } else if (cp <= 0.63) {
-    return 'Paper';
+  if (cp < 0.33) {
+    return 'rock';
+  } else if (cp < 0.66) {
+    return 'paper';
   } else {
-    return 'Scissors';
+    return 'scissors';
   }
 }
 
-//Play Round Function
+// Play Round Function
 
 function playRound(ps, cs) {
   if (ps != 'paper' && ps != 'scissors' && ps != 'rock') {
-    return 'Good at spelling, you are not.';
-  } else if (ps.toLowerCase() == 'paper' && cs == 'Rock') {
+    return 'Good at spelling you are not. ';
+  } else if (ps == 'paper' && cs == 'rock') {
     playerPoints++;
-    roundWinner = 'player';
-    return 'You Win! Paper beats Rock';
-  } else if (ps.toLowerCase() == 'paper' && cs == 'Scissors') {
-    robotPoints++;
-    return 'You Lose! Scissors beats Paper';
-  } else if (ps.toLowerCase() == 'rock' && cs == 'Scissors') {
+    roundWinner = 'Player';
+    return 'You Win! Paper beats Rock ';
+  } else if (ps == 'paper' && cs == 'scissors') {
+    computerPoints++;
+    roundWinner = 'Computer';
+    return 'You Lose! Scissors beats Paper ';
+  } else if (ps == 'rock' && cs == 'scissors') {
     playerPoints++;
-    roundWinner = 'player';
-    return 'You Win! Rock beats Scissors';
-  } else if (ps.toLowerCase() == 'rock' && cs == 'Paper') {
-    robotPoints++;
-    return 'You Lose! Paper beats Rock';
-  } else if (ps.toLowerCase() == 'scissors' && cs == 'Paper') {
+    roundWinner = 'Player';
+    return 'You Win! Rock beats Scissors ';
+  } else if (ps == 'rock' && cs == 'paper') {
+    computerPoints++;
+    roundWinner = 'Computer';
+    return 'You Lose! Paper beats Rock ';
+  } else if (ps == 'scissors' && cs == 'paper') {
     playerPoints++;
-    roundWinner = 'player';
-    return 'You Win! Scissors beats Paper';
-  } else if (ps.toLowerCase() == 'scissors' && cs == 'Rock') {
-    robotPoints++;
-    return 'You lose! Rock beats Scissors';
+    roundWinner = 'Player';
+    return 'You Win! Scissors beats Paper ';
+  } else if (ps == 'scissors' && cs == 'rock') {
+    computerPoints++;
+    roundWinner = 'Computer';
+    return 'You lose! Rock beats Scissors ';
   } else {
     draw++;
-    return ps.toUpperCase(), cs.toUpperCase(), 'Is a tie!';
+    return (
+      ps.toUpperCase(), cs.toUpperCase(), 'Oh, no! Is a tie. Please try again.'
+    );
   }
 }
 
-console.log(playRound(playerSelection, computerSelection()));
+// User Interface(in the console)
+console.log('========= FIRST ROUND =========');
+console.log(playRound(playerSelection.toLowerCase(), computerSelection()));
 console.log(
-  `Player Points = ${playerPoints}, Computer Points = ${robotPoints}, and Draws = ${draw}`
+  `Player Points = ${playerPoints}, Computer Points = ${computerPoints}, and Draws = ${draw}`
 );
-console.log(`The round winner is ${roundWinner}`);
+console.log('========= NEW ROUND =========');
 
-//Game Function
+//Game Function - While Loop
 
 function game() {
-  return playRound();
+  while (playerPoints != 5 || computerPoints != 5) {
+    let playerSelection = prompt('  Choose wisely: Rock, Paper or Scissors? ');
+    if (roundWinner == 'Computer' || roundWinner == 'Player') {
+      console.log(
+        `You have ${playerPoints} points. Computer has ${computerPoints} points. And there are ${draw} ties.`
+      );
+      console.log(
+        playRound(playerSelection.toLowerCase(), computerSelection())
+      );
+      console.log('========= NEW ROUND =========');
+    } else {
+      console.log('No winners this time. Try again!');
+      console.log(
+        playRound(playerSelection.toLowerCase(), computerSelection())
+      );
+      console.log('========= NEW ROUND =========');
+    }
+
+    //Stop game - Winning condition
+    if (playerPoints == 5 || computerPoints == 5) {
+      break;
+    }
+  }
+}
+
+game();
+
+// Declare Winner
+if (computerPoints === 5) {
+  console.log(`Game Over - COMPUTER Wins 😪️`);
+} else if (playerPoints === 5) {
+  console.log(`Game Over - YOU WIN!!! 😎️`);
 }
