@@ -4,12 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+  <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors</title>
   </head>
   <body>
-    <p>This is an game RPS Game played in the console.</p>
-<button>Click here to Start</button>
+    <header>
+      <h1>Rock Paper Scissors</h1>
+    </header>
+
+    <div class="score-board">
+<div class="user-label">Your score: <span id="user-score">0</span></div>
+<div class="draw-label">Ties: <span id="draw-score">0</span></div> 
+<div class="computer-label">Computer score: <span id="computer-score">0</span></div>      
+    </div>
+    <br>
+
+    <div id="result">Click any button to start the game!</div>
+
+    <div class="choices-div">
+      <h2>User choice: <span id="user-choice"></span></h2>
+     <h2>Computer choice: <span id="computer-choice"></span></h2>
+    </div>
+    
+ 
+    <!-- TODO: agregar un toltip con el ALT/Nombre de cada icono. -->
+    <!-- TODO: Agregar un algun efecto al click de los botones. -->
+<div class="choices">
+<button  id="rock" class="choice" >✊</button> 
+<button  id="paper" class="choice">✋</button>
+<button  id="scissors" class="choice">🤞</button>
+</div>
+
+<p id="round-message">ROUND <span id="round-score">0</span></p>
+
 <script src="./rps.js"></script>  
 </body>
 </html>
