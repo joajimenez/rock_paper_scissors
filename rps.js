@@ -13,6 +13,7 @@ let draw = 0;
 let computerPoints = 0;
 let playerPoints = 0;
 let rounds = 0;
+const audio = new Audio('/assets/audio/free-music-for-video-games.mp3');
 
 // //Player selection
 choiceButtons.forEach((choiceButton) =>
@@ -25,6 +26,7 @@ choiceButtons.forEach((choiceButton) =>
     computerScoreDisplay.innerText = computerPoints;
     drawDisplay.innerText = draw;
     roundScorerDisplay.innerText = rounds;
+    audio.play();
   })
 );
 
@@ -71,6 +73,8 @@ function playRound() {
   rounds++;
   resultDisplay.innerText = result;
 }
+
+//Add background music
 
 // User Interface(in the console)
 // console.log('============= FIRST ROUND =============');
