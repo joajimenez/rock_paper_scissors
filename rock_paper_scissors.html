@@ -29,13 +29,20 @@
  
     <!-- TODO: agregar un toltip con el ALT/Nombre de cada icono. -->
     <!-- TODO: Agregar un algun efecto al click de los botones. -->
+    <!-- DONE: Agregar boton para pausar audiio
+         TODO: Agregar boton para reiniciar el juego. -->
 <div class="choices">
 <button  id="rock" class="choice" >✊</button> 
 <button  id="paper" class="choice">✋</button>
 <button  id="scissors" class="choice">🤞</button>
 </div>
 
+
+<audio src="/assets/audio/free-music-for-video-games.mp3" type='audio/mpeg' id="myAudio" loop></audio>
+
 <p id="round-message">ROUND <span id="round-score">0</span></p>
+<button id="play-pause-btn"> Pause music </button>
+
 
 <script src="./rps.js"></script>  
 </body>

@@ -35,6 +35,7 @@ header > h1 {
   text-align: center;
 }
 .choices-div {
+  padding-top: 50px;
   color: grey;
   font-size: small;
   font-style: italic;
@@ -43,7 +44,7 @@ header > h1 {
 }
 
 .choices {
-  margin-top: 50px;
+  padding-top: 50px;
   text-align: center;
 }
 
@@ -63,8 +64,13 @@ header > h1 {
   transform: scale(1.5);
 }
 
-#action-message {
-  padding-top: 20px;
+.choice:active {
+  background-color: #3e8e41;
+  transform: translateY(4px);
+}
+
+#round-message {
+  padding-top: 30px;
   text-align: center;
   color: grey;
 }

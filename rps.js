@@ -4,7 +4,7 @@ const userScoreDisplay = document.getElementById('user-score');
 const computerScoreDisplay = document.getElementById('computer-score');
 const drawDisplay = document.getElementById('draw-score');
 const resultDisplay = document.getElementById('result');
-const choiceButtons = document.querySelectorAll('button');
+const choiceButtons = document.querySelectorAll('.choice');
 const roundScorerDisplay = document.getElementById('round-score');
 let userChoice;
 let computerChoice;
@@ -13,7 +13,8 @@ let draw = 0;
 let computerPoints = 0;
 let playerPoints = 0;
 let rounds = 0;
-const audio = new Audio('/assets/audio/free-music-for-video-games.mp3');
+const audio = document.getElementById('myAudio');
+const playPauseButton = document.getElementById('play-pause-btn');
 
 // //Player selection
 choiceButtons.forEach((choiceButton) =>
@@ -26,7 +27,6 @@ choiceButtons.forEach((choiceButton) =>
     computerScoreDisplay.innerText = computerPoints;
     drawDisplay.innerText = draw;
     roundScorerDisplay.innerText = rounds;
-    audio.play();
   })
 );
 
@@ -74,43 +74,17 @@ function playRound() {
   resultDisplay.innerText = result;
 }
 
-//Add background music
+playPauseButton.addEventListener('click', function () {
+  if (audio.paused) {
+    audio.play();
+    playPauseButton.innerText = 'Pause Audio';
+  } else {
+    audio.pause();
+    playPauseButton.innerText = 'Play Audio';
+  }
+});
 
-// User Interface(in the console)
-// console.log('============= FIRST ROUND =============');
-// console.log(playRound(playerSelection.toLowerCase(), computerSelection()));
-// console.log(
-//   `Player Points = ${playerPoints}, Computer Points = ${computerPoints}, and Draws = ${draw}`
-// );
-// console.log('============= NEW ROUND =============');
-
-//Game Function - While Loop
-
-// // function game() {
-// //   while (playerPoints != 5 || computerPoints != 5) {
-// //     //let playerSelection = prompt('  Choose wisely: Rock, Paper or Scissors? ');
-// //     if (roundWinner === 'Computer' || roundWinner === 'Player') {
-// //       rockBtn.addEventListener('click', () => playRound('rock'));
-
-// //       paperBtn.addEventListener('click', () => playRound('paper'));
-
-// //       scissorsBtn.addEventListener('click', () => playRound('scissors'));
-// //     }
-
-// //     //Stop game - Winning condition
-// //     if (playerPoints === 5 || computerPoints === 5) {
-// //       break;
-// //     }
-// //   }
-// }
-
-// function game() {
-//   rockBtn.addEventListener('click', () => playRound('rock', computerChoice));
-//   paperBtn.addEventListener('click', () => playRound('paper', computerChoice));
-//   scissorsBtn.addEventListener('click', () =>
-//     playRound('scissors', computerChoice)
-//   );
-// }
+playPauseButton();
 
 // game();
 
