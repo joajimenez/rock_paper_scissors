@@ -4,13 +4,56 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+
     <title>Rock Paper Scissors</title>
   </head>
   <body>
-    <p>This is an RPS Game played in the console.</p>
-<button>Click here to Start</button>
+    <header>
+      <h1>Rock Paper Scissors</h1>
+    </header>
+
+    <div class="score-board">
+<div class="user-label">Your score: <span id="user-score">0</span></div>
+<div class="draw-label">Ties: <span id="draw-score">0</span></div> 
+<div class="computer-label">Computer score: <span id="computer-score">0</span></div>      
+    </div>
+    <br>
+
+    <div id="result">Click any button to start the game!</div>
+
+    <div class="choices-div">
+      <h2>User choice: <span id="user-choice"></span></h2>
+     <h2>Computer choice: <span id="computer-choice"></span></h2>
+    </div>
+
+    <!-- TODO: Agregar boton para reiniciar el juego. -->
+    <!-- TODO: Agregar audio al click de los botones -->
+    <!-- TODO: agregar un toltip con el ALT/Nombre de cada icono. -->
+    <!-- DONE: Agregar un algun efecto al click de los botones. -->
+    <!-- DONE: Agregar boton para pausar audiio -->
+    
+<div class="choices">
+<button  id="rock" class="choice" >✊</button> 
+<button  id="paper" class="choice">✋</button>
+<button  id="scissors" class="choice">🤞</button>
+</div>
+
+
+<audio src="/assets/audio/free-music-for-video-games.mp3" type='audio/mpeg' id="myAudio" loop autoplay= ></audio>
+<audio src="/assets/audio/win-round-sound-effect.mp3" type='audio/mpeg' id="winSound"></audio>
+<audio src="/assets/audio/lose-round-sound-effect.mp3" type =' audio/mpeg' id="loseSound"></audio>
+
+<div id="round-audio-div">
+  <div class="nes-badge is-splited">
+    <span id="round-message" class="is-warning">ROUND</span> 
+    <span id="round-score" class="is-success">0</span>
+  </div>
+  <button id="play-pause-btn">AUDIO 🔊</button>
+</div>
+
 <script src="./rps.js"></script>  
 </body>
 </html>
-<html</html>
+<html</html3
