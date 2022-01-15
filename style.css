@@ -33,9 +33,9 @@ header > h1 {
 
 #result {
   margin: 20px auto;
-  color: white;
   font-size: 40px;
   text-align: center;
+  color: white;
 }
 .choices-div {
   padding-top: 50px;
@@ -72,16 +72,11 @@ header > h1 {
   transform: translateY(4px);
 }
 
-#round-message {
-  padding-top: 30px;
-  text-align: center;
-  color: grey;
-}
-
-.round-audio-div {
-  margin-top: 1rem;
-  justify-items: auto;
-  text-align: center;
+#round-audio-div {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #play-pause-btn {

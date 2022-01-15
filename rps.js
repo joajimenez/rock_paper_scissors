@@ -53,30 +53,37 @@ function playRound() {
   if (userChoice === computerChoice) {
     result = 'Its a DRAW!';
     draw++;
+    tieColor();
   } else if (userChoice === 'paper' && computerChoice === 'scissors') {
     result = 'You LOSE!';
     computerPoints++;
     loseRoundSound();
+    loseColor();
   } else if (userChoice === 'rock' && computerChoice === 'scissors') {
     result = 'You WIN!';
     playerPoints++;
     winRoundSound();
+    winColor();
   } else if (userChoice === 'rock' && computerChoice === 'paper') {
     result = 'You LOSE!';
     computerPoints++;
     loseRoundSound();
+    loseColor();
   } else if (userChoice === 'scissors' && computerChoice === 'paper') {
     result = 'You WIN!';
     playerPoints++;
     winRoundSound();
+    winColor();
   } else if (userChoice === 'scissors' && computerChoice === 'rock') {
     result = 'You LOSE!';
     computerPoints++;
     loseRoundSound();
+    loseColor();
   } else {
     result = 'You WIN!';
     playerPoints++;
     winRoundSound();
+    winColor();
   }
   rounds++;
   resultDisplay.innerText = result;
@@ -100,6 +107,18 @@ function winRoundSound() {
 function loseRoundSound() {
   losingSound.currentTime = 0;
   losingSound.play();
+}
+
+function winColor() {
+  document.getElementById('result').style.color = '#92cc41';
+}
+
+function loseColor() {
+  document.getElementById('result').style.color = '#e76e55';
+}
+
+function tieColor() {
+  document.getElementById('result').style.color = '#d3d3d3';
 }
 
 playPauseButton();
