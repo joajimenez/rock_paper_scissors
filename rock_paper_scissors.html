@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors</title>
   </head>
@@ -25,12 +27,13 @@
       <h2>User choice: <span id="user-choice"></span></h2>
      <h2>Computer choice: <span id="computer-choice"></span></h2>
     </div>
-    
- 
+
+    <!-- TODO: Agregar boton para reiniciar el juego. -->
+    <!-- TODO: Agregar audio al click de los botones -->
     <!-- TODO: agregar un toltip con el ALT/Nombre de cada icono. -->
-    <!-- TODO: Agregar un algun efecto al click de los botones. -->
-    <!-- DONE: Agregar boton para pausar audiio
-         TODO: Agregar boton para reiniciar el juego. -->
+    <!-- DONE: Agregar un algun efecto al click de los botones. -->
+    <!-- DONE: Agregar boton para pausar audiio -->
+    
 <div class="choices">
 <button  id="rock" class="choice" >✊</button> 
 <button  id="paper" class="choice">✋</button>
@@ -38,13 +41,19 @@
 </div>
 
 
-<audio src="/assets/audio/free-music-for-video-games.mp3" type='audio/mpeg' id="myAudio" loop></audio>
+<audio src="/assets/audio/free-music-for-video-games.mp3" type='audio/mpeg' id="myAudio" loop autoplay= ></audio>
+<audio src="/assets/audio/win-round-sound-effect.mp3" type='audio/mpeg' id="winSound"></audio>
+<audio src="/assets/audio/lose-round-sound-effect.mp3" type =' audio/mpeg' id="loseSound"></audio>
 
-<p id="round-message">ROUND <span id="round-score">0</span></p>
-<button id="play-pause-btn"> Pause music </button>
+<div class="round-audio-div">
+  <p id="round-message">ROUND <span id="round-score">0</span></p>
+  <button id="play-pause-btn">AUDIO 🔊</button>
+</div>
+
+        
 
 
 <script src="./rps.js"></script>  
 </body>
 </html>
-<html</html>
+<html</html3

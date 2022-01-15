@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: 0;
+  font-family: 'Press Start 2P', cursive;
 }
 
 body {
@@ -23,7 +26,7 @@ header > h1 {
   margin: 20px auto;
   text-align: center;
   color: grey;
-  font-size: 20px;
+  font-size: 15px;
   display: flex;
   justify-content: space-around;
 }
@@ -57,7 +60,7 @@ header > h1 {
   margin: 0 10px;
   transition: all 100ms ease;
   font-size: 3rem;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .choice:hover {
@@ -73,4 +76,14 @@ header > h1 {
   padding-top: 30px;
   text-align: center;
   color: grey;
+}
+
+.round-audio-div {
+  margin-top: 1rem;
+  justify-items: auto;
+  text-align: center;
+}
+
+#play-pause-btn {
+  margin-top: 10px;
 }
