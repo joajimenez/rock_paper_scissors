@@ -23,7 +23,7 @@ header > h1 {
 }
 
 .score-board {
-  margin: 20px auto;
+  margin: 20px;
   text-align: center;
   color: grey;
   font-size: 15px;
@@ -33,7 +33,7 @@ header > h1 {
 
 #result {
   margin: 20px auto;
-  font-size: 40px;
+  font-size: 30px;
   text-align: center;
   color: white;
 }
