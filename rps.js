@@ -9,7 +9,12 @@ const roundScorerDisplay = document.getElementById('round-score');
 const audio = document.getElementById('myAudio');
 const winningSound = document.getElementById('winSound');
 const losingSound = document.getElementById('loseSound');
+const youWinSound = document.getElementById('youWinSound');
+const youLoseSound = document.getElementById('youLoseSound');
+const gameOverSound = document.getElementById('gameOverSound');
+const drawSound = document.getElementById('drawSound');
 const playPauseButton = document.getElementById('play-pause-btn');
+
 let userChoice;
 let computerChoice;
 let result;
@@ -68,6 +73,7 @@ function playRound() {
     result = 'Its a DRAW!';
     draw++;
     tieColor();
+    drawRoundSound();
   } else if (userChoice === 'paper' && computerChoice === 'scissors') {
     result = 'Ouch!';
     computerPoints++;
@@ -123,6 +129,27 @@ function loseRoundSound() {
   losingSound.play();
 }
 
+function drawRoundSound() {
+  drawSound.currentTime = 0;
+  drawSound.play();
+}
+
+function gameOverYouWinSound() {
+  gameOverSound.currentTime = 0;
+  gameOverSound.play();
+  gameOverSound.onended = function () {
+    youWinSound.play();
+  };
+}
+
+function gameOverYouLoseSound() {
+  gameOverSound.currentTime = 0;
+  gameOverSound.play();
+  gameOverSound.onended = function () {
+    youLoseSound.play();
+  };
+}
+
 function winColor() {
   document.getElementById('result').style.color = '#92cc41';
 }
@@ -146,10 +173,12 @@ function resetGlobalVariables() {
 
 function declareWinner() {
   if (computerPoints === 5) {
-    resultDisplay.innerText = 'Game Over - AI Wins 😪️';
+    resultDisplay.innerText = 'Game Over - You LOSE.';
+    gameOverYouLoseSound();
     resetGlobalVariables();
   } else if (playerPoints === 5) {
-    resultDisplay.innerText = 'Game Over - YOU WIN!!! 😎️';
+    resultDisplay.innerText = 'Game Over - YOU WIN!!!';
+    gameOverYouWinSound();
     resetGlobalVariables();
   }
 }
