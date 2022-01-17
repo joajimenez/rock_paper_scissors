@@ -57,9 +57,19 @@ header > h1 {
   justify-content: space-evenly;
 }
 
+.span-score {
+  color: white;
+  text-decoration: underline;
+}
+
 .choices {
   padding-top: 50px;
   text-align: center;
+}
+
+.choice-span {
+  color: white;
+  text-decoration: underline;
 }
 
 .choice {
