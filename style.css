@@ -8,8 +8,14 @@
 }
 
 body {
+  /* width: 100%; */
   font-family: Arial, Helvetica, sans-serif;
   background-color: #24272e;
+}
+
+#container {
+  /* width: 900px; */
+  margin: 0 auto;
 }
 
 header {
@@ -22,11 +28,15 @@ header > h1 {
   text-align: center;
 }
 
+#subtitle {
+  text-align: center;
+}
+
 .score-board {
   margin: 20px;
   text-align: center;
   color: grey;
-  font-size: 15px;
+  font-size: 14px;
   display: flex;
   justify-content: space-around;
 }
@@ -82,4 +92,10 @@ header > h1 {
 
 #play-pause-btn {
   margin-top: 10px;
+}
+
+@media screen and (min-width: 600px) {
+  body {
+    border: 0px 200px;
+  }
 }

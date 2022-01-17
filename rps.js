@@ -29,6 +29,7 @@ choiceButtons.forEach((choiceButton) =>
     computerScoreDisplay.innerText = computerPoints;
     drawDisplay.innerText = draw;
     roundScorerDisplay.innerText = rounds;
+    declareWinner();
   })
 );
 
@@ -47,6 +48,22 @@ function getComputerChoice() {
   computerChoiceDisplay.innerText = computerChoice;
 }
 
+playerWinsRoundPhrases = [
+  "I'm just being lazy.",
+  'Beginners luck.',
+  "You're better than this.",
+];
+
+playerLoseRoundPhrases = [
+  "I'm gonna win.",
+
+  'Aha! rookie mistake.',
+
+  'Analyze that!',
+
+  'Resistance is futile.',
+];
+
 // Play Round Function
 
 function playRound() {
@@ -55,32 +72,32 @@ function playRound() {
     draw++;
     tieColor();
   } else if (userChoice === 'paper' && computerChoice === 'scissors') {
-    result = 'You LOSE!';
+    result = 'Ouch!';
     computerPoints++;
     loseRoundSound();
     loseColor();
   } else if (userChoice === 'rock' && computerChoice === 'scissors') {
-    result = 'You WIN!';
+    result = 'Nice!';
     playerPoints++;
     winRoundSound();
     winColor();
   } else if (userChoice === 'rock' && computerChoice === 'paper') {
-    result = 'You LOSE!';
+    result = 'Ouch!';
     computerPoints++;
     loseRoundSound();
     loseColor();
   } else if (userChoice === 'scissors' && computerChoice === 'paper') {
-    result = 'You WIN!';
+    result = 'Nice!';
     playerPoints++;
     winRoundSound();
     winColor();
   } else if (userChoice === 'scissors' && computerChoice === 'rock') {
-    result = 'You LOSE!';
+    result = 'Ouch!';
     computerPoints++;
     loseRoundSound();
     loseColor();
   } else {
-    result = 'You WIN!';
+    result = 'Nice!';
     playerPoints++;
     winRoundSound();
     winColor();
@@ -121,13 +138,21 @@ function tieColor() {
   document.getElementById('result').style.color = '#d3d3d3';
 }
 
-playPauseButton();
+//Game Over
 
-// game();
+function resetGlobalVariables() {
+  draw = 0;
+  computerPoints = 0;
+  playerPoints = 0;
+  rounds = 0;
+}
 
-// Declare Winner
-// if (computerPoints ==== 5) {
-//   console.log(`Game Over - COMPUTER Wins 😪️`);
-// } else if (playerPoints ==== 5) {
-//   console.log(`Game Over - YOU WIN!!! 😎️`);
-// }
+function declareWinner() {
+  if (computerPoints === 5) {
+    resultDisplay.innerText = 'Game Over - AI Wins 😪️';
+    resetGlobalVariables();
+  } else if (playerPoints === 5) {
+    resultDisplay.innerText = 'Game Over - YOU WIN!!! 😎️';
+    resetGlobalVariables();
+  }
+}
