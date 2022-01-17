@@ -56,11 +56,8 @@ playerWinsRoundPhrases = [
 
 playerLoseRoundPhrases = [
   "I'm gonna win.",
-
   'Aha! rookie mistake.',
-
   'Analyze that!',
-
   'Resistance is futile.',
 ];
 
