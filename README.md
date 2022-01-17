@@ -1,4 +1,4 @@
-# rock_paper_scissors
+# Rock Paper Scissors
 
 A small Rock Paper Scissors game made with vanilla JS and NES.css.
 
